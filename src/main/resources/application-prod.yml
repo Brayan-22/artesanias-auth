@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: auth-service
+  config:
+    import: configserver:http://config-server:9196
+server:
+  port: ${AUTH_SERVICE_PORT:9091}
+
+
+jwt:
+  secret: ${SECRET_KEY:MiAVzqUXy5Tfr1kVIGpPMiAVzqUXy5Tfr1kVIGpP}
+  expiration: 86400000

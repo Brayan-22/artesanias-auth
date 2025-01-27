@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: auth-service
+  config:
+    import: configserver:http://localhost:9196
+server:
+  port: 9001
+
+jwt:
+  secret: MiAVzqUXy5Tfr1kVIGpPMiAVzqUXy5Tfr1kVIGpP
+  expiration: 86400000
