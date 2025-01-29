@@ -25,7 +25,6 @@ FROM openjdk:17-slim AS runtime
 
 WORKDIR /app
 
-
 # Crear usuario no root para nginx
 RUN addgroup -S nonroot && adduser -S nonroot -G nonroot
 
