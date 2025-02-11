@@ -18,7 +18,6 @@ public class AuthService {
     private final RestTemplate restTemplate;
     private final JwtUtil jwtUtil;
 
-
     public AuthResponse register(AuthRequest request) {
         request.setPassword(BCrypt.hashpw(request.getPassword(), BCrypt.gensalt()));
         UserReponseDto registeredUser = restTemplate.postForObject("http://USER-SERVICE/user/register", request, UserReponseDto.class);
