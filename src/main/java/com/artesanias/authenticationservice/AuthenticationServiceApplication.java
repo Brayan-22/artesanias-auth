@@ -11,7 +11,6 @@ import org.springframework.web.client.RestTemplate;
 @SpringBootApplication
 @EnableDiscoveryClient
 public class AuthenticationServiceApplication {
-
     public static void main(String[] args) {
         SpringApplication.run(AuthenticationServiceApplication.class, args);
     }
