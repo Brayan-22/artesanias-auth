@@ -49,6 +49,22 @@ public class JwtUtil {
                 .signWith(key)
                 .compact();
     }
+    public String getUserId(String token) {
+        return getClaims(token).get("id", String.class);
+    }
+
+    public String getRole(String token) {
+        return getClaims(token).get("role", String.class);
+    }
+    public boolean validateToken(String token) {
+        try {
+            getClaims(token);
+            return !isExpired(token);
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
     private boolean isExpired(String token){
         return getExpirationDate(token).before(new Date());
     }

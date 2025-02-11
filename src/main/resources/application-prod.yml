@@ -2,11 +2,17 @@ spring:
   application:
     name: auth-service
   config:
-    import: configserver:http://config-server:9196
+    import: optional:configserver:${CONFIG_SERVER_URI:http://localhost:9196}
 server:
-  port: ${AUTH_SERVICE_PORT:9091}
-
-
+  port: ${PORT:9001}
 jwt:
-  secret: ${SECRET_KEY:MiAVzqUXy5Tfr1kVIGpPMiAVzqUXy5Tfr1kVIGpP}
-  expiration: 86400000
+  secret: ${JWT_SECRET:MiAVzqUXy5Tfr1kVIGpPMiAVzqUXy5Tfr1kVIGpP}
+  expiration: ${JWT_EXPIRATION:86400000}
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: ${EUREKA_URI:http://localhost:8761/eureka/}
+  instance:
+    hostname: ${HOSTNAME:localhost}
